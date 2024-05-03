@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.name }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ post.name }}</h1>
+    <p class="date">
+        Publicado {{ post.publish }} por {{ post.author}}
+    </p>
+    {{ post.description|linebreaks }}
+    Ambiente com controle de iluminação
+    {% if post.lighting_control_environment %}
+    &check;
+    {% else %}
+    &cross;
+    {% endif %}
+    <br>Ambiente com isolamento acústico:
+    {% if post.soundproof_environment %}
+     &check;
+    {% else %}
+    &cross;
+    {% endif %}
+    <br>Acesso preferencial:
+    {% if post.preferential_access %}
+     &check;
+    {% else %}
+    &cross;
+    {% endif %}
+    <br>Presença de estacionamento:
+    {% if post.parking %}
+     &check;
+    {% else %}
+    &cross;
+    {% endif %}
+    <p class="address"> Endereço:
+    <br>{{ post.address }}, {{ post.number }}
+    <br>{{ post.neighborhood }}, Zona {{ post.city_area }}
+    <br>CEP {{ post.zip_code|stringformat:"08d" }}</p>
+{% endblock %}
