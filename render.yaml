@@ -1,5 +1,5 @@
 databases:
-  - name: pi1-univesp
+  - name: pi1_univesp
     plan: free
     databaseName: pi1_univesp
     user: pi1_univesp_user
